@@ -61,7 +61,7 @@ export class Project extends BaseTimeEntity {
   creator: Partner; // 프로젝트 생성자
 
   @ManyToOne(() => InternalUser, { onDelete: 'SET NULL' })
-  @JoinColumn({ name: 'internal_user_id' })
+  @JoinColumn({ name: 'manager_id' })
   manager: InternalUser; // 내부 관리자 담당자
 
   @OneToMany(() => ProjectParticipant, (participant) => participant.project)

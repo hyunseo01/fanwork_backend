@@ -57,7 +57,7 @@ export class Settlement extends BaseTimeEntity {
   @Column({ type: 'jsonb', nullable: true })
   transactionDate: any; // 거래 기록 모음 (JSONB)
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'text' })
   notes: string; // 메모 및 지급 방식
 
   @Column({ default: false })

@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { BaseTimeEntity } from '../../common/entities/BaseTime.entity';
+import { Project } from '../../projects/entities/project.entity';
 
 export enum InternalUserRole {
   ADMIN = 'ADMIN',
@@ -34,4 +35,7 @@ export class InternalUser extends BaseTimeEntity {
 
   @Column({ type: 'timestamp', nullable: true })
   lastLoginAt: Date; // 마지막 로그인 시각
+
+  @OneToMany(() => Project, (project) => project.manager)
+  projects: Project[];
 }

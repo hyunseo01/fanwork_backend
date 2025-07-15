@@ -8,5 +8,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [TypeOrmModule.forFeature([InternalUser])],
   controllers: [InternalUsersController],
   providers: [InternalUsersService],
+  exports: [TypeOrmModule],
 })
 export class InternalUsersModule {}

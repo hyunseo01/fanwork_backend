@@ -34,7 +34,7 @@ export class AuthController {
   @UseGuards(SessionAuthGuard)
   @Get('me')
   async getMyInfo(@Req() req: AuthenticatedRequest) {
-    const result = await this.authService.getMyInfo(req.session.user.id);
+    const result = await this.authService.getMyInfo(req.session.user!.id);
     return {
       message: '내 정보 조회 성공',
       data: result,
